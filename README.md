@@ -196,6 +196,8 @@ The final XGBoost model achieved approximately 98% accuracy while maintaining st
 
 ---
 
+Dataset Downloaded from Kaggle RetailRocket E-commerece Dataset
+
 ## Author
 
 Varun Kumar
