@@ -1,206 +1,313 @@
-# RetailRocket E-Commerce Recommendation System
+# 🛒 RetailRocket E-Commerce Recommendation System
 
-## Project Overview
+## 📌 Project Overview
 
-This project analyzes user behavior from the RetailRocket E-Commerce dataset and builds a recommendation system along with machine learning models to identify high-value customers.
+This project uses the RetailRocket E-Commerce Dataset to analyze user behavior, build machine learning models, generate product recommendations, and implement a Graph Neural Network (GNN) recommendation engine.
 
-The project covers the complete machine learning pipeline including data cleaning, exploratory data analysis (EDA), feature engineering, customer segmentation, recommendation systems, and predictive modeling.
+The project covers the complete machine learning workflow from data preprocessing to advanced recommendation systems.
 
 ---
 
-## Dataset
+## 🎯 Objectives
+
+- Analyze customer interactions
+- Understand user purchasing behavior
+- Build machine learning models
+- Generate personalized recommendations
+- Implement Graph Neural Networks (GNNs)
+- Visualize recommendations and embeddings
+
+---
+
+## 📂 Dataset
 
 Dataset: RetailRocket E-Commerce Dataset
 
-The dataset contains user interactions such as:
+Features:
 
-- View Events
-- Add-to-Cart Events
-- Transactions
-
-These interactions were used to understand customer behavior and generate product recommendations.
-
----
-
-## Project Objectives
-
-- Analyze customer behavior patterns
-- Perform exploratory data analysis
-- Create customer-level features
-- Identify high-value customers
-- Build recommendation systems
-- Compare multiple machine learning models
-- Generate personalized product recommendations
+- Visitor ID
+- Item ID
+- Event Type (view, addtocart, transaction)
+- Timestamp
 
 ---
 
-## Exploratory Data Analysis (EDA)
+## 🧹 Data Cleaning
 
 Performed:
 
-- Dataset exploration
-- Event distribution analysis
-- Conversion funnel analysis
-- Daily activity trends
-- Top purchased products analysis
-
-Key Findings:
-
-- Cart Rate: 2.59%
-- Purchase Rate: 0.84%
-
----
-
-## Feature Engineering
-
-Created customer-level features:
-
-- View Count
-- Add-to-Cart Count
-- Transaction Count
-- Cart Rate
-- Purchase Rate
-
-Created target variable:
-
-- High Value User
-
----
-
-## Recommendation System
-
-Implemented:
-
-### User-Based Collaborative Filtering
-
-Steps:
-
-1. User-Item Matrix Creation
-2. Cosine Similarity Calculation
-3. Similar User Identification
-4. Product Recommendation Generation
+- Removed missing values
+- Removed duplicates
+- Converted timestamps
+- Cleaned event records
+- Prepared data for analysis
 
 Output:
 
-- recommended_items.csv
+- cleaned_events.csv
+
+---
+
+## 📊 Exploratory Data Analysis (EDA)
+
+Performed:
+
+- Dataset overview
+- Event distribution analysis
+- User activity analysis
+- Product popularity analysis
+- Daily activity trends
+- Conversion funnel analysis
+
+Generated Visualizations:
+
+- event_distribution.png
+- daily_activity_trend.png
+- top_products.png
+- conversion_funnel.png
+
+---
+
+## ⚙️ Feature Engineering
+
+Created:
+
+- User interaction counts
+- Product interaction counts
+- Purchase behavior features
+- Product popularity metrics
+- Recommendation features
+
+Generated Files:
+
+- user_features.csv
+- item_features.csv
+
+---
+
+# 🌳 Decision Tree Model
+
+Built a Decision Tree Classifier to predict user interactions.
+
+Steps:
+
+- Train-Test Split
+- Stratified Sampling
+- Model Training
+- Evaluation
+
+Results:
+
+- High classification performance
+- Classification Report generated
+
+---
+
+# 🌲 Random Forest Model
+
+Implemented Random Forest for improved performance.
+
+Features:
+
+- Ensemble Learning
+- Reduced Overfitting
+- Feature Importance Analysis
+
+Generated Outputs:
+
+- feature_importance.png
+- random_forest_results.csv
+
+---
+
+# 🚀 XGBoost Model
+
+Applied XGBoost for advanced prediction.
+
+Advantages:
+
+- High Accuracy
+- Gradient Boosting
+- Better Generalization
+
+Generated Outputs:
+
+- confusion_matrix.png
+- xgboost_results.csv
+
+---
+
+# 🎯 Recommendation System
+
+Built a recommendation engine using user-item interactions.
+
+Workflow:
+
+User → Interaction History
+↓
+Similarity Analysis
+↓
+Top-N Recommendations
+
+Generated Outputs:
+
+- top_5_recommended_items.csv
 - top_5_recommended_items.png
 
 ---
 
-## Machine Learning Models
+# 🧠 Graph Neural Network (GNN) Recommendation System
 
-### Decision Tree
+Implemented a Graph Convolutional Network (GCN) using PyTorch Geometric.
 
-Applied SMOTE to handle class imbalance.
+### Graph Construction
 
-Result:
+Users → Nodes
 
-- Accuracy: 97.7%
-- Recall (High Value Users): 90%
+Items → Nodes
 
-### Random Forest
+Interactions → Edges
 
-Improved performance using ensemble learning.
+### GNN Architecture
 
-Result:
+GCNConv(1827 → 64)
 
-- Accuracy: 98%
+↓
 
-### XGBoost
+ReLU
 
-Built an advanced boosting model for customer classification.
+↓
 
-Result:
+GCNConv(64 → 32)
 
-- Accuracy: 98%
-- Recall (High Value Users): 91%
+### Process
 
----
+User-Item Graph
 
-## Class Imbalance Handling
+↓
 
-Applied:
+Graph Convolution
 
-### SMOTE (Synthetic Minority Oversampling Technique)
+↓
 
-This balanced the minority class and significantly improved the detection of high-value users.
+Node Embeddings
 
----
+↓
 
-## Model Evaluation
+Similarity Calculation
 
-Evaluation Metrics:
+↓
 
-- Accuracy
-- Precision
-- Recall
-- F1 Score
-- Confusion Matrix
+Top Recommendations
 
-Files:
+### Generated Outputs
 
-- xgboost_confusion_matrix.png
-- model_comparison.csv
+- GNN_recommendations.csv
+- GNN_recommendations_with_scores.csv
+- GNN_top_recommendations.png
+- GNN_recommendation_scores.png
+- gnn_embeddings_pca.png
 
 ---
 
-## Technologies Used
+## 📈 Technologies Used
 
 - Python
 - Pandas
 - NumPy
 - Matplotlib
+- Seaborn
 - Scikit-Learn
+- Decision Tree
+- Random Forest
 - XGBoost
-- Imbalanced-Learn (SMOTE)
+- PyTorch
+- PyTorch Geometric
+- Graph Neural Networks (GCN)
 
 ---
 
-## Project Structure
+## 📊 Project Workflow
 
-```text
-RetailRocket-Recommendation-System/
+Data Collection
 
+↓
 
- - Feature_engineering.ipynb
- - Recommendation_System.ipynb
+Data Cleaning
 
- - recommended_items.csv
- - model_comparison.csv
+↓
 
- - top_5_recommended_items.png
- - xgboost_confusion_matrix.png
+EDA
 
-README.md
+↓
 
+Feature Engineering
 
-## Results
+↓
 
-Successfully built:
+Decision Tree
 
-- Customer Recommendation System
-- High Value User Prediction System
-- Multiple Machine Learning Models
-- Product Recommendation Engine
+↓
 
-The final XGBoost model achieved approximately 98% accuracy while maintaining strong recall for identifying high-value customers.
+Random Forest
+
+↓
+
+XGBoost
+
+↓
+
+Recommendation System
+
+↓
+
+Graph Neural Network
+
+↓
+
+Visualization & Evaluation
 
 ---
 
-## Future Improvements
+## 🏆 Key Learnings
 
-- Deep Learning Recommendation Models
-- Real-Time Recommendation Engine
-- Hybrid Recommendation Systems
-- Deployment using Streamlit or Flask
+- Data Cleaning
+- Exploratory Data Analysis
+- Feature Engineering
+- Classification Models
+- Ensemble Learning
+- Recommendation Systems
+- Graph Neural Networks
+- Node Embeddings
+- Recommendation Visualization
+- PyTorch Geometric
 
 ---
 
-Dataset Downloaded from Kaggle RetailRocket E-commerece Dataset
+## 📁 Project Files
 
-## Author
+- RetailRocket_Recommendation_System.ipynb
+- cleaned_events.csv
+- user_features.csv
+- item_features.csv
+- feature_importance.png
+- confusion_matrix.png
+- top_5_recommended_items.csv
+- top_5_recommended_items.png
+- GNN_recommendations.csv
+- GNN_recommendations_with_scores.csv
+- GNN_top_recommendations.png
+- GNN_recommendation_scores.png
+- gnn_embeddings_pca.png
 
-Varun Kumar
+---
 
-GitHub:
+## 👨‍💻 Author
+
+**Varun Kumar**
+
+GitHub Profile:
+
 https://github.com/varunkumarr2005
+
+---
